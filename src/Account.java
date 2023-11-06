@@ -15,22 +15,27 @@ public class Account {
     }
 
     public void setCustomerNumber(int customerNumber) {
+
         this.customerNumber = customerNumber;
     }
 
     public int getPinNumber() {
+
         return pinNumber;
     }
 
     public void setPinNumber(int pinNumber) {
+
         this.pinNumber = pinNumber;
     }
 
     public double getCheckingBalance() {
+
         return checkingBalance;
     }
 
     public double getSavingBalance() {
+
         return savingBalance;
     }
 
@@ -69,7 +74,6 @@ public class Account {
         System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
         System.out.println("Amount you want to Deposit from saving Account: ");
         double amount = input.nextDouble();
-
         if ((savingBalance - amount) >= 0) {
             calcSavingDeposit(amount);
             System.out.println("New saving Account Balance: " + moneyFormat.format(savingBalance));
