@@ -33,6 +33,8 @@ public class Account {
     public double getSavingBalance() {
         return savingBalance;
     }
+
+
     public double calcCheckingWithdraw(double amount){
         checkingBalance = (checkingBalance - amount);
         return checkingBalance;
@@ -57,7 +59,48 @@ public class Account {
 
         if((checkingBalance - amount) >= 0){
             calcCheckingWithdraw(amount);
-            System.out.println("New");
+            System.out.println("New Checking Account Balance: " + moneyFormat.format(checkingBalance));
+        } else {
+            System.out.println("Balance Cannot be Negative. " + "\n");
+        }
+    }
+
+    public void getSavingWithdrawInput() {
+        System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
+        System.out.println("Amount you want to Deposit from saving Account: ");
+        double amount = input.nextDouble();
+
+        if ((savingBalance - amount) >= 0) {
+            calcSavingDeposit(amount);
+            System.out.println("New saving Account Balance: " + moneyFormat.format(savingBalance));
+        } else {
+            System.out.println("Balance Cannot be Negative. " + "\n");
+        }
+    }
+
+    public void getCheckingDepositInput(){
+        System.out.println("Checking Account Balance: " + moneyFormat.format(checkingBalance));
+        System.out.println("Amount you want to Deposit from Checking Account: ");
+        double amount = input.nextDouble();
+
+        if((checkingBalance +amount) >= 0) {
+            calcCheckingDeposit(amount);
+            System.out.println("New Checking Account Balance: " + moneyFormat.format(checkingBalance));
+        } else {
+            System.out.println("Balance Cannot be Negative." + "\n");
+        }
+    }
+
+    public void getSavingDepositInput(){
+        System.out.println("Saving Account Balance: " + moneyFormat.format(savingBalance));
+        System.out.println("Amount you want to Deposit from saving Account: ");
+        double amount = input.nextDouble();
+
+        if((savingBalance + amount) >= 0) {
+            calcSavingDeposit(amount);
+            System.out.println("New Saving Account Balance: " + moneyFormat.format(savingBalance));
+        } else {
+            System.out.println("Balance Cannot be Negative. " + "\n");
         }
     }
 }

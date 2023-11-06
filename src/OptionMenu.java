@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class OptionMenu extends Account{
     Scanner menuInput = new Scanner(System.in);
     DecimalFormat moneyFormat = new DecimalFormat("'$' ###,##0.00");
-
     HashMap<Integer, Integer> data = new HashMap<Integer, Integer>();
 
     public void getLogin() throws IOException{
@@ -17,8 +16,9 @@ public class OptionMenu extends Account{
                 data.put(98765, 12345);
 
                 System.out.println("Welcome to the ATM Project!");
-                System.out.println("WEnter your customer Number");
-                set.CustomerNumber(menuInput().nextInt());
+                System.out.println("Enter your customer Number");
+                setCustomerNumber(menuInput.nextInt());
+
 
                 System.out.println("Enter your PIN Number: ");
                 setPinNumber(menuInput.nextInt());
@@ -69,7 +69,7 @@ public class OptionMenu extends Account{
 
     switch(selection){
         case 1:
-            System.out.println("Checking Account Balance: " + moneyFormat.format(getChecking()));
+            System.out.println("Checking Account Balance: " + moneyFormat.format(getCheckingBalance()));
             getAccountType();
             break;
 
@@ -104,20 +104,17 @@ public class OptionMenu extends Account{
 
         switch (selection){
             case 1:
-                System.out.println("Saving Account Balance: "+ moneyFormat.format(getSaving()));
+                System.out.println("Saving Account Balance: "+ moneyFormat.format(getSavingBalance()));
                 getAccountType();
                 break;
-
             case 2:
-                getsavingWithdrawInput();
+                getSavingWithdrawInput();
                 getAccountType();
                 break;
-
             case 3:
                 getSavingDepositInput();
                 getAccountType();
                 break;
-
             case 4:
                 System.out.println("Thanks for using this ATM, bye.");
                 break;
@@ -128,7 +125,4 @@ public class OptionMenu extends Account{
 
         }
     }
-
-
-
 }
